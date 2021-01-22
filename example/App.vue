@@ -86,7 +86,7 @@ export default {
       hoverIcon: "",
       hoverSize: "",
       year: new Date().getFullYear(),
-      exampleSizes: ["24", "1x", "1.5x", "2x", "3x", "4x"],
+      exampleSizes: ["24", "1x", "1.5x", "2x", "3x", "4x"]
     };
   },
   computed: {
@@ -94,18 +94,19 @@ export default {
       const keyword = this.keyword.trim().toLowerCase();
       if (!keyword) return this.icons;
 
-      return this.icons.filter((name) => {
-        return name.toLowerCase().indexOf(keyword) > -1;
-      });
+      return this.icons.filter(
+        name => name.toLowerCase().indexOf(keyword) > -1
+      );
     },
     example() {
       return example
         .replace(/ICON/g, this.hoverIcon)
         .replace(/kebab-icon/g, kebab(this.hoverIcon));
-    },
+    }
   },
   methods: {
     handleClickIcon(icon) {
+      console.log(icon);
       this.hoverIcon = icon;
     },
     handleClickSize(size) {
@@ -116,17 +117,19 @@ export default {
         .replace("1.5x", size)
         .replace(/ICON/g, "ArchiveIcon")
         .replace(/kebab-icon/g, "archive-icon");
-    },
+    }
   },
   components: {
     ...icons,
-    Github,
-  },
+    Github
+  }
 };
 </script>
 
-<style src="v-tippy/dist/tippy.css"></style>
-<style src="prismjs/themes/prism.css"></style>
+<style src="v-tippy/dist/tippy.css">
+</style>
+<style src="prismjs/themes/prism.css">
+</style>
 
 <style>
 body {
